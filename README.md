@@ -9,6 +9,7 @@ Front-End
 Back-End
 * [Body-Parser](https://github.com/expressjs/body-parser) - Node.js body parsing middleware to read data from front-end
 * [Express](https://expressjs.com/) - The web framework used
+* [MySQL](https://www.mysql.com/) - Database used
 
 
 ## Authors
