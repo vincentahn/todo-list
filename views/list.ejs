@@ -1,56 +1,58 @@
 <%- include("partials/header"); -%>
 
-  <div class=""> <!--list heading-->
-    <div class=""> <!--list date container-->
-      <h1><%= listDate %></h1>
+  <div class="main-page container-fluid">
+    <div class="row row-cols-1 row-cols-lg-2">
+      <div class="list-container col"> <!--List container-->
+        <div class="list-heading"> <!--list heading-->
+          <div class=""> <!--list date container-->
+            <h1><%= listDate %></h1>
+          </div>
+        </div>
+
+        <div class=""> <!--list items container-->
+          <% listArray.forEach(function(item){ %>
+          <div class="item"> <!-- List item-->
+            <form class="item" action="/check" method="post">
+              <input type="checkbox" name="checked" value="<%= item.checked %>" onChange="this.form.submit()" <% if(item.checked){ %> checked <% } %>>
+
+              <p><%=item.name%></p>
+
+              <!-- Also insert hidden input for name and id of item. -->
+              <input type="hidden" name="id" value="<%= item.id %>">
+              <input type="hidden" name="listDate" value="<%= listDate %>">
+              <input type="hidden" name="name" value="<%= item.name %>">
+            </form>
+
+            <form class="item" action="/delete" method="post">
+              <button type="submit" name="delete">Delete</button>
+
+              <!-- Also insert hidden input for name and id of item. -->
+              <input type="hidden" name="id" value="<%= item.id %>">
+              <input type="hidden" name="listDate" value="<%= listDate %>">
+              <input type="hidden" name="name" value="<%= item.name%>">
+            </form>
+          </div>
+          <% }) %>
+
+          <div class="item"> <!-- New List item-->
+            <form class="item" action="/add" method="post">
+              <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+              <button type="submit" name="submit">Submit</button>
+
+              <!-- Also insert hidden input for name and id of item. -->
+              <input type="hidden" name="listDate" value="<%= listDate %>">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="calendar-container col">
+        <!--calendar container-->
+        <form action="/date" method="post">
+          <input type="date" id="date" name="date">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
-
-  <div class=""> <!--list container-->
-    <% listArray.forEach(function(item){ %>
-      <div class="item"> <!-- List item-->
-        <form class="item" action="/check" method="post">
-          <input type="checkbox" name="checked" value = "<%= item.checked %>" onChange="this.form.submit()"
-            <% if(item.checked){ %>
-              checked
-            <% } %>
-          >
-
-          <p><%=item.name%></p>
-
-          <!-- Also insert hidden input for name and id of item. -->
-          <input type="hidden" name="id" value="<%= item.id %>">
-          <input type="hidden" name="listDate" value="<%= listDate %>">
-          <input type="hidden" name="name" value="<%= item.name %>">
-        </form>
-
-        <form class="item" action="/delete" method="post">
-          <button type="submit" name="delete">Delete</button>
-
-          <!-- Also insert hidden input for name and id of item. -->
-          <input type="hidden" name="id" value="<%= item.id %>">
-          <input type="hidden" name="listDate" value="<%= listDate %>">
-          <input type="hidden" name="name" value="<%= item.name%>">
-        </form>
-      </div>
-    <% }) %>
-
-      <div class="item"> <!-- New List item-->
-        <form class="item" action="/add" method="post">
-          <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-          <button type="submit" name="submit">Submit</button>
-
-          <!-- Also insert hidden input for name and id of item. -->
-          <input type="hidden" name="listDate" value="<%= listDate %>">
-        </form>
-      </div>
-  </div>
-
-  <div class=""> <!--calendar container-->
-    <form action="/date" method="post">
-      <input type="date" id="date" name="date">
-      <button type="submit">Submit</button>
-    </form>
   </div>
 
 <%- include("partials/footer"); -%>

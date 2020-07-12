@@ -1,3 +1,23 @@
+/* Color palette : https://colorhunt.co/palette/130807 */
+
+body{
+  background-color: #f7f7f7;
+}
+
 h1{
-  color: green;
+  color: red;
+}
+
+/* Containers */
+.main-page{
+  background-color: #eeeeee;
+  height: 100vh;
+}
+
+.list-container{
+  height: 100vh;
+}
+
+.calendar-container{
+  background-color: black;
 }
