@@ -46,8 +46,13 @@ body{
   font-weight: 200;
 }
 
-.item-button{
+.new-item-name{
+  padding-left: 20px;
+  width: 100%;
+}
 
+.new-item-button{
+  padding-left: 10px;
 }
 
 .calendar-container{
@@ -66,4 +71,5 @@ input[type="text"]{
   background: transparent;
   font-size: 20px;
   font-weight: 200;
+  width: 100%;
 }

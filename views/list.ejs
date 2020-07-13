@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="item-button">
-                  <form class="item" action="/delete" method="post">
+                  <form class="item form-inline" action="/delete" method="post">
                     <button class="btn btn-outline-dark" type="submit" name="delete">Delete</button>
 
                     <!-- Also insert hidden input for name and id of item. -->
@@ -47,15 +47,21 @@
           <% }) %>
 
           <li class="list-group-item">
-            <div class="item"> <!-- New List item-->
-              <form class="item" action="/add" method="post">
-                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-                <button class="btn btn-outline-dark" type="submit" name="submit">Submit</button>
+            <form class="item form-inline" action="/add" method="post">
+              <div class="item-container">
+
+                <div class="new-item-name">
+                  <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                </div>
+
+                <div class="new-item-button">
+                  <button class="btn btn-outline-dark" type="submit" name="submit">Submit</button>
+                </div>
 
                 <!-- Also insert hidden input for name and id of item. -->
                 <input type="hidden" name="listDate" value="<%= listDate %>">
-              </form>
-            </div>
+              </div>
+            </form>
           </li>
         </ul>
       </div>
