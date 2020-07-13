@@ -4,20 +4,66 @@ body{
   background-color: #f7f7f7;
 }
 
-h1{
-  color: red;
-}
-
 /* Containers */
 .main-page{
-  background-color: #eeeeee;
   height: 100vh;
 }
 
+/** List **/
 .list-container{
-  height: 100vh;
+  background-color: #eeeeee;
+  height: 50vh;
+  margin-bottom: 25vh;
+  margin-top: 25vh;
+}
+
+.list-heading{
+  text-align: center;
+}
+
+/*** Item ***/
+.item-container{
+  align-items: center;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.item-checkbox{
+
+}
+
+.item-name{
+  width: 100%;
+}
+
+.item-name p{
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.item-button{
+
 }
 
 .calendar-container{
-  background-color: black;
+  background-color: #eeeeee;
+  height: 50vh;
+  margin-bottom: 25vh;
+  margin-top: 25vh;
+}
+
+/* Input */
+input[type="text"]{
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
 }

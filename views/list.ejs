@@ -3,53 +3,67 @@
   <div class="main-page container-fluid">
     <div class="row row-cols-1 row-cols-lg-2">
       <div class="list-container col"> <!--List container-->
-        <div class="list-heading"> <!--list heading-->
-          <div class=""> <!--list date container-->
-            <h1><%= listDate %></h1>
-          </div>
-        </div>
+        <ul class="list-group-item">
+          <li class="list-group-item">
+            <div class="list-heading"> <!--list heading-->
+              <div class=""> <!--list date container-->
+                <h1><%= listDate %></h1>
+              </div>
+            </div>
+          </li>
 
-        <div class=""> <!--list items container-->
           <% listArray.forEach(function(item){ %>
-          <div class="item"> <!-- List item-->
-            <form class="item" action="/check" method="post">
-              <input type="checkbox" name="checked" value="<%= item.checked %>" onChange="this.form.submit()" <% if(item.checked){ %> checked <% } %>>
+            <li class="list-group-item">
+              <div class="item-container"> <!-- List item-->
 
-              <p><%=item.name%></p>
+                <div class="item-checkbox">
+                  <form class="item form-inline" action="/check" method="post">
+                    <input type="checkbox" name="checked" value="<%= item.checked %>" onChange="this.form.submit()" <% if(item.checked){ %> checked <% } %>>
 
-              <!-- Also insert hidden input for name and id of item. -->
-              <input type="hidden" name="id" value="<%= item.id %>">
-              <input type="hidden" name="listDate" value="<%= listDate %>">
-              <input type="hidden" name="name" value="<%= item.name %>">
-            </form>
+                    <!-- Also insert hidden input for name and id of item. -->
+                    <input type="hidden" name="id" value="<%= item.id %>">
+                    <input type="hidden" name="listDate" value="<%= listDate %>">
+                    <input type="hidden" name="name" value="<%= item.name %>">
+                  </form>
+                </div>
 
-            <form class="item" action="/delete" method="post">
-              <button type="submit" name="delete">Delete</button>
+                <div class="item-name" <% if(item.checked){ %> style="text-decoration-line: line-through;" <% } %>>
+                  <p><%=item.name%></p>
+                </div>
 
-              <!-- Also insert hidden input for name and id of item. -->
-              <input type="hidden" name="id" value="<%= item.id %>">
-              <input type="hidden" name="listDate" value="<%= listDate %>">
-              <input type="hidden" name="name" value="<%= item.name%>">
-            </form>
-          </div>
+                <div class="item-button">
+                  <form class="item" action="/delete" method="post">
+                    <button class="btn btn-outline-dark" type="submit" name="delete">Delete</button>
+
+                    <!-- Also insert hidden input for name and id of item. -->
+                    <input type="hidden" name="id" value="<%= item.id %>">
+                    <input type="hidden" name="listDate" value="<%= listDate %>">
+                    <input type="hidden" name="name" value="<%= item.name%>">
+                  </form>
+                </div>
+
+              </div>
+            </li>
           <% }) %>
 
-          <div class="item"> <!-- New List item-->
-            <form class="item" action="/add" method="post">
-              <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-              <button type="submit" name="submit">Submit</button>
+          <li class="list-group-item">
+            <div class="item"> <!-- New List item-->
+              <form class="item" action="/add" method="post">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button class="btn btn-outline-dark" type="submit" name="submit">Submit</button>
 
-              <!-- Also insert hidden input for name and id of item. -->
-              <input type="hidden" name="listDate" value="<%= listDate %>">
-            </form>
-          </div>
-        </div>
+                <!-- Also insert hidden input for name and id of item. -->
+                <input type="hidden" name="listDate" value="<%= listDate %>">
+              </form>
+            </div>
+          </li>
+        </ul>
       </div>
       <div class="calendar-container col">
         <!--calendar container-->
         <form action="/date" method="post">
           <input type="date" id="date" name="date">
-          <button type="submit">Submit</button>
+          <button class="btn btn-outline-dark" type="submit">Submit</button>
         </form>
       </div>
     </div>
