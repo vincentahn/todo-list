@@ -1,0 +1,27 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Front-End\r * [Bootstrap](https://getbootstrap.com/) - HTML, CSS, and JS library for front-end\r * [EJS](https://ejs.co/) - Templating language that lets you generate HTML markup with plain JavaScript",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincentahn/todo-list.git"
+  },
+  "author": "Vincent Ahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincentahn/todo-list/issues"
+  },
+  "homepage": "https://github.com/vincentahn/todo-list#readme"
+}
